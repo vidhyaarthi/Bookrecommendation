@@ -1,4 +1,4 @@
-package com.web.controller;
+/*package com.web.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +32,7 @@ public class RegisterController {
 	
     @RequestMapping(method = RequestMethod.POST, produces="application/json", consumes="application/json", path = "/user")
     @ResponseBody
-    public ResponseEntity addUser(@RequestBody String json) throws JsonParseException, JsonMappingException, IOException
+    public ResponseEntity<String> addUser(@RequestBody String json) throws JsonParseException, JsonMappingException, IOException
     {
     		HttpHeaders responseHeaders = new HttpHeaders();
     		try {
@@ -49,4 +49,4 @@ public class RegisterController {
     }
     
    
-}
+}*/

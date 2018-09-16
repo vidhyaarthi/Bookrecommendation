@@ -1,7 +1,7 @@
 package com.web.model;
 
 
-import java.io.Serializable;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="register")
 
-public class Register implements Serializable {
+public class Register  {
 
 		@Id
 		@GeneratedValue(strategy=GenerationType.AUTO)
