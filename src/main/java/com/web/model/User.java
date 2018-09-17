@@ -1,7 +1,6 @@
 package com.web.model;
 
-
-
+import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,9 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="register")
+@Table(name="user")
+public class User implements Serializable {
 
-public class Register  {
+	private static final long serialVersionUID = -6640481949420444264L; 
 
 		@Id
 		@GeneratedValue(strategy=GenerationType.AUTO)
@@ -44,12 +44,12 @@ public class Register  {
 		public void setPassword(String password) {
 			this.password = password;
 		}
-
-		public Register() {
+		
+		public User() {
 			//empty constructor required by JPA
 		}
-
-		public Register(String username) {
+		
+		public User(String username) {
 			this.username = username;
 		}
 

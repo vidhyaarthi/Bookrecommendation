@@ -1,10 +1,12 @@
 package com.web.repos;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-import com.web.model.Register;
+import com.web.model.User;
 
-public interface RegisterRepository extends CrudRepository<Register,Integer> {
+@Repository
+public interface RegisterRepository extends CrudRepository<User,Integer> {
     
     
 }

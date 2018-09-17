@@ -5,10 +5,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Registration Form</title>
+<head>
+<script type="text/javascript">
+function formValidation()
+{
+var password = document.registration.password.value;
+var password1 = document.registration.password1.value;
+if(password == password1)
+{
+	return true;
+}
+else
+{
+	alert("Passwords doesnot match");
+	return false;
+}
+}
+</script>
 </head>
 <body>
 <h1>Registration Form</h1>
-<form>
+<form name='registration' method=POST action='/user' onSubmit="return formValidation()">
 			<table style="with: 50%">
 				<tr>
 					<td>Enter a User Name</td>
@@ -16,9 +33,14 @@
 				</tr>
 				<tr>
 					<td>Enter a password</td>
-					<td><input type="text" name="password" /></td>
+					<td><input type="password" name="password" /></td>
+				</tr>
+				<tr>
+					<td>Confirm password</td>
+					<td><input type="password" name="password1" /></td>
 				</tr>
 				</table>
 			<input type="submit" value="Submit" /></form>
 </body>
 </html>
+
