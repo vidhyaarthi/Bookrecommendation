@@ -8,7 +8,7 @@ import com.web.Server;
 
 
 @SpringBootApplication
-@ComponentScan("com.web")
+@ComponentScan(basePackages = {"com.web.model","com.web.repos","com.web.controller"} )
 public class Server {
 
 	 public static void main(String[] args) {
