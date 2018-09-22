@@ -4,10 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Login Form</title>
+<title></title>
 <head>
+<script type="text/javascript">
+alert("Login failed..Please try again");
+window.location = "/login";
+</script>
 </head>
 <body>
-Login failed
 </body>
 </html>

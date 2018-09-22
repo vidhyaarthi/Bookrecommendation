@@ -7,11 +7,10 @@
 <title></title>
 <head>
 <script type="text/javascript">
-alert("Failed to show recommendations..Redirecting to login page");
+alert("Failed to save feedback. Redirecting to login page!");
 window.location = "/login";
 </script>
 </head>
 <body>
-<center></center>
 </body>
 </html>

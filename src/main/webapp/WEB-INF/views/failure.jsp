@@ -6,8 +6,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login Form</title>
 <head>
+<script type="text/javascript">
+alert("Registration failed..Please try again");
+window.location = "/";
+</script>
 </head>
 <body>
-Registration failed
 </body>
 </html>

@@ -4,14 +4,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title></title>
+<title>Logout Form</title>
 <head>
-<script type="text/javascript">
-alert("Failed to show recommendations..Redirecting to login page");
-window.location = "/login";
-</script>
 </head>
 <body>
-<center></center>
+<h1></h1>
+<div data-role="page" style="float:right">
+<div data-role="header" style='height:50px'>
+<form align="right" name='logout' method=POST action='/logout'>
+				<table><tr>
+					<td>				
+					<input type="submit" value="logout"/>
+					</td></tr>
+				</table></form></div></div>
 </body>
 </html>

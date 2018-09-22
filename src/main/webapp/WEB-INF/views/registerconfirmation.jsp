@@ -9,16 +9,16 @@
 
 </head>
 <body>
-<h1>Registration Form</h1>
-<form name='registration'  method=POST action="/login">
-			<table style="with: 50%">
+<h1></h1>
+<form name='registration'  method=GET action="/login">
+			<center><table style="with: 50%">
 				<tr>
 					<td><b><font color="red">Registration successful..!</font></b></td>
 				</tr>
 				<tr>
 					<td><input type="submit" value="Click here to login"/></td>
 				</tr>
-			</table>
+			</table></center>
 			</form>
 </body>
 </html>

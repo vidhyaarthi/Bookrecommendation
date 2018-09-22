@@ -1,18 +1,12 @@
 package com.web.controller;
 
 import java.io.IOException;
-
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -50,35 +44,6 @@ public class RegisterController {
     	  } catch(Exception e) {
     			return "failure";
     	  }
-    }
-    
-    @RequestMapping(method = RequestMethod.GET, produces="application/json", path = "/user")
-    @ResponseBody
-    public ResponseEntity<String> getUsers() throws JsonParseException, JsonMappingException, IOException
-    {	
-    	 Iterable<User> users = registerRepository.findAll();
-         String userResponse = "";
-
-
-         for (User user : users) {
-             String userObj = null;
-             try {
-                 userObj = new JSONObject()
-                         .put("id", String.valueOf(user.getUserid()))
-                         .put("name", user.getUsername())
-                         .toString();
-             } catch (JSONException e) {
-                 // TODO Auto-generated catch block
-                 e.printStackTrace();
-             }
-
-             userResponse += userObj + ",";
-         }
-         if (userResponse.isEmpty()) {
-        	   return ResponseEntity.ok("{\"users\":[]}");
-         } else {
-             return ResponseEntity.ok("{\"users\":[" + userResponse.substring(0, userResponse.length() - 1) + "]}");
-         }
     }
 }
    

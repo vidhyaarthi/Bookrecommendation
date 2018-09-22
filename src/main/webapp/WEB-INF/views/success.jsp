@@ -8,18 +8,21 @@
 <head>
 </head>
 <body>
-<h1>Login Form</h1>
+<h1><center>Login Form</center></h1>
 <form name='login' method=POST action='/userlogin'>
-			<table style="with: 50%">
+			<center><table style="with: 50%">
 				<tr>
-					<td>Enter a User Name</td>
-					<td><input type="text" name="username" /></td>
+					<td bgcolor="#D3D3D3">Enter a User Name</td>
+					<td bgcolor="#87cefa"><input type="text" name="username" /></td>
 				</tr>
 				<tr>
-					<td>Enter a password</td>
-					<td><input type="password" name="password" /></td>
+					<td bgcolor="#D3D3D3">Enter a password</td>
+					<td bgcolor="#87cefa"><input type="password" name="password" /></td>
 				</tr>
-				</table>
-			<input type="submit" value="Submit"/></form>
+				<tr>
+				<td></td><td>			
+					<center><input type="submit" value="Submit"/></center></td>
+				</tr>
+				</table></center></form>
 </body>
 </html>
