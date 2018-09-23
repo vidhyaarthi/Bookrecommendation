@@ -43,66 +43,73 @@ public class BookController {
 	 @RequestMapping(method = RequestMethod.GET, produces="application/json", path = "/user/{userId}/book")
 	    public String listBooks() throws JsonParseException, JsonMappingException, IOException
 	    {	
-		 	ClassLoader classLoader = getClass().getClassLoader();
+		 		try
+		 			{
 		 	
-		    File file = new File(classLoader.getResource("books.txt").getFile());
-		    
-		    Book book = new Book();
-		    
-		    InputStream inputStream = null;
-		    
-		    inputStream = new FileInputStream(file);
-		  
-		    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-		    
-		    String line = null;
-	         
-	        while ((line = bufferedReader.readLine()) != null) 
-	        {	        	
-	    		String[] output = line.split("\\;");
-	    		book.setBookid(Integer.parseInt(output[0]));
-	    		book.setBooktitle(output[1]);
-	    		book.setAuthor(output[2]);
-	    		book.setGenre(output[3]);
-	    		bookRepository.save(book);
-	        }     	        
-	              
-	         Iterable<Book> books = bookRepository.findAll();
-	         List<Book> booklist = new ArrayList<Book>();
-
-             String bookids ="";
-             String bookstitle="";
-             int n=0;
-             
-             for (Book b : books) {
-            	 
-	             booklist.add(b);
-	             Collections.shuffle(booklist);
-             }             
-             
-	         for (Book b : booklist) {
-	        	 
-		             String bookid = "";
-		             String booktitle = "";
-		             bookid = String.valueOf(b.getBookid());
-		             booktitle= b.getBooktitle();
-			             
-				             if(n<20)
-				             {
-					             bookids += bookid + ",";
-					             bookstitle += booktitle + ",";
-					             n++;
-				             }	             
-	         			}
-	         
-	         session.setAttribute("bookids", bookids);
-	         session.setAttribute("bookstitle", bookstitle);
-	         
-	         if (bookids.isEmpty()) {
-	        	   return "bookfailure";
-	         } else {
-	             return "display";
-	         }
+		 			ClassLoader classLoader = getClass().getClassLoader();
+		 	
+				    File file = new File(classLoader.getResource("books.txt").getFile());
+				    
+				    Book book = new Book();
+				    				  
+				    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+				    
+				    String line = "";
+			         
+			        while ((line = bufferedReader.readLine()) != null) 
+			        {	        	
+			    		String[] output = line.split("\\;");
+			    		book.setBookid(Integer.parseInt(output[0]));
+			    		book.setBooktitle(output[1]);
+			    		book.setAuthor(output[2]);
+			    		book.setGenre(output[3]);
+			    		bookRepository.save(book);
+			        }     	 
+			        
+			         bufferedReader.close();
+			              
+			         Iterable<Book> books = bookRepository.findAll();
+			         List<Book> booklist = new ArrayList<Book>();
+		
+		             String bookids ="";
+		             String bookstitle="";
+		             int n=0;
+		             
+		             for (Book b : books) {
+		            	 
+			             booklist.add(b);
+			             Collections.shuffle(booklist);
+		             }             
+		             
+			         for (Book b : booklist) {
+			        	 
+				             String bookid = "";
+				             String booktitle = "";
+				             bookid = String.valueOf(b.getBookid());
+				             booktitle= b.getBooktitle();
+					             
+						             if(n<20)
+						             {
+							             bookids += bookid + ",";
+							             bookstitle += booktitle + ",";
+							             n++;
+						             }	             
+			         			}
+			         
+			         session.setAttribute("bookids", bookids);
+			         session.setAttribute("bookstitle", bookstitle);
+			         
+			         if (bookids.isEmpty()) {
+			        	   return "bookfailure";
+			         } else {
+			             return "display";
+			         }
+		 		}
+		 		catch(Exception e)
+		 		{
+		 			return "bookfailure";
+		 		}
+		 		
 	     }
 
 
