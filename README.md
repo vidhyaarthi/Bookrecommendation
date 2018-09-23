@@ -16,6 +16,7 @@ Prerequisites
     Postman
 
 REST API SCHEMES:
+
         - http
         paths:
         /user:
